@@ -70,6 +70,15 @@
         <url-pattern>/discipline/delete.html</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>TopicListServlet</servlet-name>
+        <servlet-class>web.topic.TopicListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopicListServlet</servlet-name>
+        <url-pattern>/topic/list.html</url-pattern>
+    </servlet-mapping>
+    
     <listener>
         <listener-class>web.ApplicationStartListener</listener-class>
     </listener>

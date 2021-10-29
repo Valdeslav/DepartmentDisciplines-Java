@@ -27,10 +27,11 @@ pageEncoding="UTF-8" session="false" %>
                     <c:url var="editUrl" value="/discipline/edit.html">
                         <c:param name="id" value="${discipline.id}"/>
                     </c:url>
+                    <c:url var="topicsUrl" value="/topic/list.html">
+                        <c:param name="disciplineId" value="${discipline.id}"/>
+                    </c:url>
                     <tr>
-                        <td>${discipline.name}</td>
-                        <c:url var="topicsUrl" value="/topic/list.html"/>
-                        <td><a href="${topicsUrl}">Список тем</a></td>
+                        <td><a href="${topicsUrl}">${discipline.name}</a></td>
                         <td>${discipline.teacher}</td>
                         <td>${discipline.speciality}</td>
                         <td>${discipline.course}</td>
