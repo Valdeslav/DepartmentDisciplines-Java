@@ -93,15 +93,6 @@ public class DisciplineSaveServlet extends HttpServlet {
         if(discipline.getLabsHours() == null) {
             throw new IllegalArgumentException("Не заполнено поле \"Лабораторные часы\"");
         }
-        if(discipline.getLectureLessons() == null) {
-            throw new IllegalArgumentException("Не заполнено поле \"Лекционные занятия\"");
-        }
-        if(discipline.getPracticeLessons() == null) {
-            throw new IllegalArgumentException("Не заполнено поле \"Практические занятия\"");
-        }
-        if(discipline.getLabsLessons() == null) {
-            throw new IllegalArgumentException("Не заполнено поле \"Практические занятия\"");
-        }
         return discipline;
     }
 }

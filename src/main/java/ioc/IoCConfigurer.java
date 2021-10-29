@@ -18,6 +18,7 @@ public class IoCConfigurer {
 
         Map<String, String> topicServiceDependencies = new HashMap<>();
         topicServiceDependencies.put("dao.TopicDao", "setTopicDao");
+        topicServiceDependencies.put("dao.DisciplineDao", "setDisciplineDao");
         IoCContainer.registerClass("service.TopicService", "service.TopicServiceImpl", topicServiceDependencies);
     }
 }

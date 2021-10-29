@@ -29,6 +29,8 @@ pageEncoding="UTF-8" session="false" %>
                     </c:url>
                     <tr>
                         <td>${discipline.name}</td>
+                        <c:url var="topicsUrl" value="/topic/list.html"/>
+                        <td><a href="${topicsUrl}">Список тем</a></td>
                         <td>${discipline.teacher}</td>
                         <td>${discipline.speciality}</td>
                         <td>${discipline.course}</td>

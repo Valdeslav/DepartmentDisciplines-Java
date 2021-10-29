@@ -51,6 +51,24 @@
         <servlet-name>DisciplineEditServlet</servlet-name>
         <url-pattern>/discipline/edit.html</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisciplineSaveServlet</servlet-name>
+        <servlet-class>web.discipline.DisciplineSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisciplineSaveServlet</servlet-name>
+        <url-pattern>/discipline/save.html</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DisciplineDeleteServlet</servlet-name>
+        <servlet-class>web.discipline.DisciplineDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisciplineDeleteServlet</servlet-name>
+        <url-pattern>/discipline/delete.html</url-pattern>
+    </servlet-mapping>
     
     <listener>
         <listener-class>web.ApplicationStartListener</listener-class>

@@ -58,7 +58,7 @@ public class TopicDaoSQLImpl extends BaseDaoMySqlImpl implements TopicDao {
             if(r.next()){
                 topic = new Topic();
                 topic.setId(r.getLong("id"));
-                topic.setDisciplineId(r.getInt("discipline_id"));
+                topic.setDisciplineId(r.getLong("discipline_id"));
                 topic.setName(r.getString("name"));
                 topic.setLectureHours(r.getInt("lecture_hours"));
                 topic.setPracticeHours(r.getInt("practice_hours"));
@@ -84,7 +84,7 @@ public class TopicDaoSQLImpl extends BaseDaoMySqlImpl implements TopicDao {
         PreparedStatement s = null;
         try {
             s = getConnection().prepareStatement(sql);
-            s.setInt(1, topic.getDisciplineId());
+            s.setLong(1, topic.getDisciplineId());
             s.setString(2, topic.getName());
             s.setInt(3, topic.getLectureHours());
             s.setInt(4, topic.getPracticeHours());
@@ -130,7 +130,7 @@ public class TopicDaoSQLImpl extends BaseDaoMySqlImpl implements TopicDao {
             while(r.next()){
                 Topic topic = new Topic();
                 topic.setId(r.getLong("id"));
-                topic.setDisciplineId(r.getInt("discipline_id"));
+                topic.setDisciplineId(r.getLong("discipline_id"));
                 topic.setName(r.getString("name"));
                 topic.setLectureHours(r.getInt("lecture_hours"));
                 topic.setPracticeHours(r.getInt("practice_hours"));

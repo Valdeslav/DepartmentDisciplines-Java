@@ -2,17 +2,17 @@ package domain;
 
 public class Topic extends Entity{
     private Boolean ness;
-    private Integer disciplineId;
+    private Long disciplineId;
     private String name;
     private Integer lectureHours;
     private Integer practiceHours;
     private Integer labsHours;
 
-    public Integer getDisciplineId() {
+    public Long getDisciplineId() {
         return disciplineId;
     }
 
-    public void setDisciplineId(Integer disciplineId) {
+    public void setDisciplineId(Long disciplineId) {
         this.disciplineId = disciplineId;
     }
 
