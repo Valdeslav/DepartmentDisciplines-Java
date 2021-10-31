@@ -79,6 +79,24 @@
         <url-pattern>/topic/list.html</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>TopicEditServlet</servlet-name>
+        <servlet-class>web.topic.TopicEditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopicEditServlet</servlet-name>
+        <url-pattern>/topic/edit.html</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>TopicSaveServlet</servlet-name>
+        <servlet-class>web.topic.TopicSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopicSaveServlet</servlet-name>
+        <url-pattern>/topic/save.html</url-pattern>
+    </servlet-mapping>
+    
     <listener>
         <listener-class>web.ApplicationStartListener</listener-class>
     </listener>

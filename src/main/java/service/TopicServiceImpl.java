@@ -17,25 +17,27 @@ public class TopicServiceImpl implements TopicService{
     public void save(Topic topic) throws ServiceException {
         try {
             Discipline discipline = disciplineDao.read(topic.getDisciplineId());
-            List<Topic> topics = topicDao.readByDiscipline(discipline.getId()); // проверяем условие (самостоятельных часов должно быть не больше 15%)
-            int lectSelfLearnHours = topic.getLectureHours();
-            int practSelfLearnHours = topic.getPracticeHours();
-            int labSelfLearnHours = topic.getLabsHours();
-            for(Topic top: topics) { // находим сумму самостоятельных часов
-                if (!top.getNess() & !Objects.equals(top.getId(), topic.getId())) {
-                    lectSelfLearnHours += top.getLectureHours();
-                    practSelfLearnHours += top.getPracticeHours();
-                    labSelfLearnHours += top.getLabsHours();
+            if(!topic.getNess()){
+                List<Topic> topics = topicDao.readByDiscipline(discipline.getId()); // проверяем условие (самостоятельных часов должно быть не больше 15%)
+                int lectSelfLearnHours = topic.getLectureHours();
+                int practSelfLearnHours = topic.getPracticeHours();
+                int labSelfLearnHours = topic.getLabsHours();
+                for(Topic top: topics) { // находим сумму самостоятельных часов
+                    if (!top.getNess() & !Objects.equals(top.getId(), topic.getId())) {
+                        lectSelfLearnHours += top.getLectureHours();
+                        practSelfLearnHours += top.getPracticeHours();
+                        labSelfLearnHours += top.getLabsHours();
+                    }
                 }
-            }
-            if (discipline.getLectureHours() * 0.15 < lectSelfLearnHours) {
-                throw new IllegalArgumentException("Количество лекционных часов, вынесенных на самостоятельную работу, не должно превышать 15%");
-            }
-            if (discipline.getPracticeHours() * 0.15 < practSelfLearnHours) {
-                throw new IllegalArgumentException("Количество практических часов, вынесенных на самостоятельную работу, не должно превышать 15%");
-            }
-            if (discipline.getLabsHours() * 0.15 < labSelfLearnHours) {
-                throw new IllegalArgumentException("Количество лабораторных часов, вынесенных на самостоятельную работу, не должно превышать 15%");
+                if (discipline.getLectureHours() * 0.15 < lectSelfLearnHours) {
+                    throw new IllegalArgumentException("Количество лекционных часов, вынесенных на самостоятельную работу, не должно превышать 15%");
+                }
+                if (discipline.getPracticeHours() * 0.15 < practSelfLearnHours) {
+                    throw new IllegalArgumentException("Количество практических часов, вынесенных на самостоятельную работу, не должно превышать 15%");
+                }
+                if (discipline.getLabsHours() * 0.15 < labSelfLearnHours) {
+                    throw new IllegalArgumentException("Количество лабораторных часов, вынесенных на самостоятельную работу, не должно превышать 15%");
+                }
             }
             if(topic.getId() != null) {
                 topicDao.update(topic);

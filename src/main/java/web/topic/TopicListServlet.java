@@ -21,6 +21,7 @@ public class TopicListServlet extends HttpServlet {
             Long disciplineId = Long.parseLong(req.getParameter("disciplineId"));
             List<Topic> topics = service.readByDiscipline(disciplineId);
             req.setAttribute("topics", topics);
+            req.setAttribute("disciplineId", disciplineId);
             req.getRequestDispatcher("/WEB-INF/jsp/topic/list.jsp").forward(req, resp);
         } catch(ServiceException | IoCException e) {
             throw new ServletException(e);

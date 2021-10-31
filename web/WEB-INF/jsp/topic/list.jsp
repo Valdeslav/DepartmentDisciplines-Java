@@ -17,6 +17,7 @@
                 <c:forEach var="topic" items="${topics}">
                     <c:url var="editUrl" value="/topic/edit.html">
                         <c:param name="id" value="${topic.id}"/>
+                        <c:param name="disciplineId" value="${topic.disciplineId}"/>
                     </c:url>
                     <tr>
                         <td>${topic.name}</td>
@@ -38,6 +39,8 @@
             <p>Список тем пустой</p>
         </c:otherwise>
     </c:choose>
-    <c:url var="editUrl" value="/discipline/edit.html"/>
+    <c:url var="editUrl" value="/topic/edit.html">
+        <c:param name="disciplineId" value="${disciplineId}"/>
+    </c:url>
     <p><a href="${editUrl}">Добавить новую тему</a></p>
 </u:html>

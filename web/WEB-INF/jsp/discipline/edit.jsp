@@ -14,7 +14,7 @@
     </c:otherwise>
 </c:choose>
 
-<u:html title="Редактирование дисциплины">
+<u:html title="${title}">
     <c:url var="saveUrl" value="/discipline/save.html"/>
     <form action="${saveUrl}" method="post">
         <c:if test="${not empty discipline.id}">
