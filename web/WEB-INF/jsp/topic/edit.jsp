@@ -43,6 +43,7 @@
         <c:url var="deleteUrl" value="/topic/delete.html"/>
         <form action="${deleteUrl}" method="post">
             <input type="hidden" name="id" value="${topic.id}">
+            <input type="hidden" name="disciplineId" value="${topic.disciplineId}">
             <button>Удалить</button>
         </form>
     </c:if>

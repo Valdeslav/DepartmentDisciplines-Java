@@ -96,6 +96,15 @@
         <servlet-name>TopicSaveServlet</servlet-name>
         <url-pattern>/topic/save.html</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TopicDeleteServlet</servlet-name>
+        <servlet-class>web.topic.TopicDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopicDeleteServlet</servlet-name>
+        <url-pattern>/topic/delete.html</url-pattern>
+    </servlet-mapping>
     
     <listener>
         <listener-class>web.ApplicationStartListener</listener-class>
