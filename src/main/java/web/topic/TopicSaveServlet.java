@@ -21,7 +21,7 @@ public class TopicSaveServlet extends HttpServlet {
             try(IoCContainer ioc = new IoCContainer()) {
                 TopicService service = ioc.get(TopicService.class);
                 service.save(topic);
-                resp.sendRedirect(getServletContext().getContextPath() + "/topic/list.html");
+                resp.sendRedirect(getServletContext().getContextPath() + "/topic/list.html?disciplineId=" + topic.getDisciplineId());
             } catch (ServiceException | IoCException e) {
                 throw new ServletException(e);
             }
