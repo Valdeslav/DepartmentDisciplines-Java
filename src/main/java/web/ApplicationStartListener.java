@@ -18,10 +18,10 @@ public class ApplicationStartListener implements ServletContextListener{
             String jdbcUrl = context.getInitParameter("jdbc-url");
             String jdbcUser = context.getInitParameter("jdbc-user");
             String jdbcPassword = context.getInitParameter("jdbc-password");
-            int poolMinSise = Integer.parseInt(context.getInitParameter("pool-min-size"));
+            int poolMinSize = Integer.parseInt(context.getInitParameter("pool-min-size"));
             int poolMaxSize = Integer.parseInt(context.getInitParameter("pool-max-size"));
             int poolConnectionValidationTimeout = Integer.parseInt(context.getInitParameter("pool-connection-validation-timeout"));
-            ConnectionPool.getInstance().init(jdbcDriver, jdbcUrl, jdbcUser, jdbcPassword, poolMinSise, poolMaxSize, poolConnectionValidationTimeout);
+            ConnectionPool.getInstance().init(jdbcDriver, jdbcUrl, jdbcUser, jdbcPassword, poolMinSize, poolMaxSize, poolConnectionValidationTimeout);
         } catch(PoolException | IoCException | NumberFormatException e) {
             e.printStackTrace(System.out);
         }

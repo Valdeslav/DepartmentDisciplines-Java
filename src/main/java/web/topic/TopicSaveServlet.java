@@ -40,7 +40,12 @@ public class TopicSaveServlet extends HttpServlet {
         topic.setLectureHours(Integer.parseInt(req.getParameter("lectureHours")));
         topic.setPracticeHours(Integer.parseInt(req.getParameter("practiceHours")));
         topic.setLabsHours(Integer.parseInt(req.getParameter("labsHours")));
-        topic.setNess(Boolean.parseBoolean(req.getParameter("ness")));
+        String ness = req.getParameter("ness");
+        if (ness != null) {
+            topic.setNess(true);
+        } else {
+            topic.setNess(false);
+        }
         topic.setDisciplineId(Long.parseLong(req.getParameter("disciplineId")));
         if(topic.getName() == null || topic.getName().isEmpty()){
             throw new IllegalArgumentException("Не заполнено поле \"Название\"");
